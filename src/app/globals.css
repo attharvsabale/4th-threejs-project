@@ -1,0 +1,197 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+	--background: #14151d;
+	--color-primary: #ffe9dc;
+	--color-secondary: #ff3d7f;
+	--color-abysmal: #0f1017;
+	--color-white: #fff;
+	--color-neon-green: #ff6b3d;
+	--color-neon-yellow: #3dd6ff;
+	--color-transparent: rgba(0, 0, 0, 0);
+
+	--color--ivory: #fff6ef;
+	--color-mayonnaise: #fff1e8;
+
+	--color-font-primary: var(--color-primary);
+	--color-font-secondary: var(--color-secondary);
+
+	--color-font-neutral: var(--color-mayonnaise);
+	--color-font-neutral-contrast: var(--color-abysmal);
+	--color-font-highlight: var(--color-neon-yellow);
+
+	--color-bg-primary: var(--color-neon-green);
+	--color-bg-neutral: var(--color-mayonnaise);
+	--color-bg-neutral-contrast: var(--color-abysmal);
+
+	--color-border-primary: var(--color-neon-green);
+	--color-border-neutral: var(--color-mayonnaise);
+	--color-border-neutral-contrast: var(--color-abysmal);
+
+	--font-base: 0.8333vw;
+}
+
+@media (prefers-color-scheme: dark) {
+}
+
+@media (prefers-color-scheme: light) {
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                 fontFamily                                 */
+/* -------------------------------------------------------------------------- */
+
+/* -------------------------------------------------------------------------- */
+/*                                   canvas                                   */
+/* -------------------------------------------------------------------------- */
+
+@layer base {
+	* {
+		box-sizing: border-box;
+	}
+
+	html,
+	body,
+	main {
+		font-size: calc(var(--font-base));
+		background: var(--color-font-neutral-contrast);
+	}
+
+	html,
+	body {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		margin: 0;
+		padding: 0;
+		isolation: isolate;
+	}
+
+	body {
+		color: var(--color-font-neutral);
+		background-color: var(--background);
+		scrollbar-width: 0px;
+		-ms-overflow-style: none;
+	}
+
+	body::-webkit-scrollbar,
+	::-webkit-scrollbar {
+		display: none;
+	}
+
+	/* -------------------------------------------------------------------------- */
+	/*                               font adjustment                              */
+	/* -------------------------------------------------------------------------- */
+
+	span {
+		font-size: max(1em, 14px);
+	}
+
+	h1 > span,
+	h2 > span,
+	h3 > span,
+	h4 > span,
+	h5 > span,
+	h6 > span,
+	a > span,
+	button > span {
+		font-size: max(1em, 18px);
+	}
+
+	nav p > span,
+	nav a > span,
+	nav button > span {
+		font-size: max(1em, 14px);
+	}
+
+	article span,
+	article h1,
+	article h2,
+	article h3,
+	article h4,
+	article h5,
+	article h6,
+	article a,
+	article button {
+		border-color: var(--color-transparent) !important;
+		pointer-events: auto;
+		color: var(--color-transparent) !important;
+	}
+
+	article span:not(a span):not(button span),
+	article h1,
+	article h2,
+	article h3,
+	article h4,
+	article h5,
+	article h6,
+	article p {
+		cursor: text;
+	}
+
+	article div,
+	article header,
+	article figure {
+		border-color: var(--color-transparent) !important;
+	}
+
+	article img {
+		opacity: 0 !important;
+	}
+
+	/* safari fix */
+	a {
+		cursor: pointer;
+	}
+
+	/* -------------------------------------------------------------------------- */
+	/*                                    lenis                                   */
+	/* -------------------------------------------------------------------------- */
+
+	html.lenis,
+	html.lenis body {
+		height: 100%;
+	}
+
+	.lenis.lenis-smooth {
+		scroll-behavior: auto !important;
+	}
+
+	.lenis.lenis-smooth [data-lenis-prevent] {
+		overscroll-behavior: contain;
+	}
+
+	.lenis.lenis-stopped {
+		overflow: hidden;
+	}
+
+	.lenis.lenis-scrolling iframe {
+		pointer-events: none;
+	}
+
+	main canvas {
+		-webkit-mask-image: url('/dom/star-mask.svg');
+		mask-image: url('/dom/star-mask.svg');
+		-webkit-mask-repeat: no-repeat;
+		mask-repeat: no-repeat;
+		-webkit-mask-position: center center;
+		mask-position: center center;
+		mask-size: 0rem;
+		pointer-events: none;
+	}
+}
+
+@layer utilities {
+	.font-boxing {
+		font-family: var(--font-boxing);
+	}
+
+	.font-satoshi {
+		font-family: var(--font-satoshi);
+	}
+}
+
+@layer components {
+}
